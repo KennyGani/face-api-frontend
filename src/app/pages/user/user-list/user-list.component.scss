@@ -1,0 +1,52 @@
+@import './../../../../styles.scss';
+
+table {
+    width: 100%;
+    min-height: 70vh !important;
+    max-height: 70vh !important;
+    min-width: 60vw !important;
+    max-width: 75vw !important;
+}
+
+.table-index-number {
+    width: 3vw !important;
+}
+
+.table-full-name {
+    width: 17vw !important;
+}
+
+.table-dob {
+    width: 10vw !important;
+}
+
+.table-created-date {
+    width: 12vw !important;
+}
+
+.table-last-modified-date {
+    width: 12vw !important;
+}
+
+.table-ktp {
+    width: 11vw !important;
+}
+
+.table-bpjs {
+    width: 11vw !important;
+}
+
+.mat-paginator {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.join-input-and-select-form::ng-deep .mat-mdc-form-field-infix {
+    display: inherit !important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.user-list-filter-input-width {
+    width: 80%;
+}

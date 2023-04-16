@@ -1,0 +1,16 @@
+@import './../../../../styles.scss';
+
+.progress-bar-background {
+    background-color: $accent;
+    border-radius: 8px;
+    text-align: left;
+    width: 89%;
+}
+
+.progress-bar-filled {
+    background-color: $primary;
+    color: $button-text-primary;
+    text-align: center;
+    border-radius: 8px;
+    width: 89%;
+}

@@ -1,0 +1,13 @@
+<div style="display: flex; height: 89%; align-items: center; flex-direction: column">
+    <br />
+    <br />
+    <div mat-dialog-content>
+        <h3>Anda yakin untuk menghapus pasien ini? <br /></h3>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial class="primary-button medium-button">
+            Tidak
+        </button>
+        <button mat-raised-button (click)="this.deleteUser()" class="warn-button medium-button">Ya</button>
+    </div>
+</div>

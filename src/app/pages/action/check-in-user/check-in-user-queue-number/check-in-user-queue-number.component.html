@@ -1,0 +1,14 @@
+<div style="display: flex; height: 89%; align-items: center; flex-direction: column">
+    <br />
+    <br />
+    <div mat-dialog-content>
+        <h3 style="text-align: center">Selamat datang, <br /><br />Bapak/Ibu {{ data.name | titlecase }}</h3>
+        <br />
+        <h3 style="text-align: center">Nomor antrian: {{ data.queueId }}</h3>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button [mat-dialog-close]="true" cdkFocusInitial class="accent-button medium-button">
+            Ok
+        </button>
+    </div>
+</div>

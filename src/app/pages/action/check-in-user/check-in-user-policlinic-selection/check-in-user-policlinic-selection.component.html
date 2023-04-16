@@ -1,0 +1,24 @@
+<div style="display: flex; height: 89%; align-items: center; flex-direction: column">
+    <br />
+    <br />
+    <h2>Layanan Hari Ini</h2>
+    <br />
+    <div mat-dialog-content>
+        <mat-radio-group [(ngModel)]="this.selectedPoliclinicId">
+            <div *ngFor="let item of data.policlinicOptions">
+                <mat-radio-button [value]="item.policlinicId">{{ item.policlinicName }}</mat-radio-button>
+            </div>
+        </mat-radio-group>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close class="medium-button warn-button">Batal</button>
+        <button
+            mat-raised-button
+            [mat-dialog-close]="this.selectedPoliclinicId"
+            cdkFocusInitial
+            class="accent-button medium-button"
+        >
+            Pilih
+        </button>
+    </div>
+</div>

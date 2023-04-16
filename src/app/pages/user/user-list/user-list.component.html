@@ -1,0 +1,121 @@
+<br />
+<mat-grid-list cols="2" rowHeight="13vh" style="margin: 0 5% 0 5%">
+    <mat-grid-tile>
+        <mat-form-field class="user-list-filter-input-width" appearance="outline">
+            <mat-label>Cari dengan nama lengkap ...</mat-label>
+            <input
+                matInput
+                type="text"
+                [(ngModel)]="this.inputFullName"
+                (ngModelChange)="this.onFilterChange()"
+                placeholder="Nama Lengkap"
+            />
+        </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <mat-form-field class="join-input-and-select-form user-list-filter-input-width" appearance="outline">
+            <input
+                matInput
+                type="text"
+                [(ngModel)]="this.inputLegalIdValue"
+                (ngModelChange)="this.onFilterChange()"
+                class="accent-border-color"
+                style="border-right: 1px solid !important"
+                placeholder="Cari dengan nomor identitas ..."
+            />
+            <mat-select
+                [(ngModel)]="this.inputLegalIdType"
+                (selectionChange)="this.onFilterChange()"
+                placeholder="Jenis Identitas"
+                style="place-self: center; width: 45%; margin-left: 2%"
+            >
+                <mat-option *ngFor="let legalId of this.tableLegalIdFilter" [value]="this.legalId">
+                    {{ this.tableLegalIdFilterLabelMapping[legalId] }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-grid-tile>
+</mat-grid-list>
+
+<hr style="width: 89%; border: 1px solid; margin-bottom: 0px; margin-top: 0px" class="accent-border-color" />
+<br />
+
+<table
+    mat-table
+    matSortDisableClear="true"
+    [dataSource]="tableDataSource"
+    matSort
+    (matSortChange)="this.onFilterChange($event.active, $event.direction)"
+    class="mat-elevation-z8"
+>
+    <ng-container matColumnDef="indexNumber">
+        <th mat-header-cell *matHeaderCellDef class="table-index-number">No.</th>
+        <td mat-cell *matCellDef="let element">{{ this.element.indexNumber }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="fullName">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef class="table-full-name">Nama Lengkap</th>
+        <td mat-cell *matCellDef="let element">{{ this.element.fullName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dobInString">
+        <th mat-header-cell *matHeaderCellDef class="table-dob">Tanggal Lahir</th>
+        <td mat-cell *matCellDef="let element">{{ this.element.dobInString }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdDateInString">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef class="table-created-date">Registrasi</th>
+        <td mat-cell *matCellDef="let element">{{ this.element.createdDateInString }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastModifiedDateInString">
+        <th mat-header-cell mat-sort-header *matHeaderCellDef class="table-last-modified-date">Terakhir diubah</th>
+        <td mat-cell *matCellDef="let element">
+            {{ this.element.lastModifiedDateInString ? this.element.lastModifiedDateInString : '-' }}
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ktpId">
+        <th mat-header-cell *matHeaderCellDef class="table-ktp">No. KTP</th>
+        <td mat-cell *matCellDef="let element">{{ this.element.ktpId ? this.element.ktpId : '-' }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="bpjsId">
+        <th mat-header-cell *matHeaderCellDef class="table-bpjs">No. BPJS</th>
+        <td mat-cell *matCellDef="let element">{{ this.element.bpjsId ? this.element.bpjsId : '-' }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        (click)="onTableRowClick(row)"
+        style="cursor: pointer"
+    ></tr>
+</table>
+
+<mat-paginator class="mat-paginator" [pageSizeOptions]="[this.pageSize]"> </mat-paginator>
+<br />
+<div style="text-align: right">
+    <button
+        mat-raised-button
+        class="primary-button x-small-button"
+        [disabled]="this.pageNumber === 1"
+        (click)="this.showPreviousUserListPage()"
+        style="margin-bottom: 0%; margin-right: 1%"
+    >
+        <mat-icon style="margin-right: 0%; margin-left: 0%">navigate_before</mat-icon>
+    </button>
+
+    <button
+        mat-raised-button
+        class="primary-button x-small-button"
+        [disabled]="!this.canOpenNextPage"
+        (click)="this.showNextUserListPage()"
+        style="margin-bottom: 0%"
+    >
+        <mat-icon style="margin-right: 0%; margin-left: 0%">navigate_next</mat-icon>
+    </button>
+</div>
+<br />

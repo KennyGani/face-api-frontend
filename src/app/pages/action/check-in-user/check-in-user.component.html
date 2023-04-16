@@ -1,0 +1,25 @@
+<br />
+<app-face-recognition
+    #faceRecognition
+    style="width: 63vw; display: flex; align-items: center; justify-content: center"
+></app-face-recognition>
+<br />
+<br />
+<button
+    mat-raised-button
+    class="accent-button large-button"
+    (click)="startFaceRecognition()"
+    *ngIf="!this.hasStartedRecognition"
+    [disabled]="this.hasStartedRecognition"
+>
+    Kenali Saya
+</button>
+
+<button
+    mat-raised-button
+    class="warn-button large-button"
+    (click)="stopFaceRecognitionAndStartOver()"
+    *ngIf="this.hasStartedRecognition"
+>
+    Stop
+</button>

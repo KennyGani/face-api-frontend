@@ -1,0 +1,51 @@
+<div *ngIf="this.isLoadingAuthenticationModuleObservable | async; else authenticationModuleLoaded">
+    <app-page-loading></app-page-loading>
+</div>
+
+<ng-template #authenticationModuleLoaded>
+    <mat-drawer-container hasBackdrop="false" autosize class="sidebar full-page-height">
+        <mat-drawer opened mode="side" class="drawer">
+            <div class="top">
+                <img src="../../../assets/sidebar/images/logo-sidebar.webp" (click)="this.navigateToHomePage()" />
+            </div>
+            <div class="middle">
+                <button
+                    mat-button
+                    *ngIf="this.isAdmin"
+                    (click)="this.navigateToUserSearchPage()"
+                    style="font-size: larger"
+                >
+                    <i class="bx bx-search"></i>
+                    Cari Data
+                </button>
+                <br />
+                <button
+                    mat-button
+                    *ngIf="this.isAdmin"
+                    (click)="this.navigateToUserCreationPage()"
+                    style="font-size: larger"
+                >
+                    <i class="bx bx-edit"></i>
+                    Registrasi
+                </button>
+                <br />
+                <button mat-button (click)="this.navigateToUserCheckInPage()" style="font-size: larger">
+                    <i class="bx bx-face"></i>
+                    Check In
+                </button>
+                <br />
+            </div>
+            <div class="bottom">
+                <button mat-button (click)="this.logout()" style="font-size: larger">
+                    <i class="bx bx-log-out"></i>
+                    Log Out
+                </button>
+            </div>
+        </mat-drawer>
+        <mat-drawer-content>
+            <div class="full-page-height content-page">
+                <router-outlet></router-outlet>
+            </div>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</ng-template>

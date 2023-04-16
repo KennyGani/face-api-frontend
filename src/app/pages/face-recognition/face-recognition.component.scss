@@ -1,0 +1,7 @@
+@import './../../../styles.scss';
+
+.face-recognition-video {
+    width: inherit;
+    border-radius: 55px;
+    box-shadow: 0 0 13px 0 rgba($primary, $alpha: 0.34), 0 5px 34px 0 rgba($accent, $alpha: 0.21);
+}

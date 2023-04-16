@@ -1,0 +1,92 @@
+<h1>Ubah Data Pasien</h1>
+<br />
+<br />
+<form (ngSubmit)="onSubmit()" style="width: 21vw">
+    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="true" style="width: inherit">
+        <mat-label>Nama Lengkap</mat-label>
+        <input matInput type="text" [(ngModel)]="this.fullName" [formControl]="this.fullNameFormControl" />
+        <button
+            mat-icon-button
+            *ngIf="this.fullName"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="this.fullName = ''"
+        >
+            <mat-icon>clear</mat-icon>
+        </button>
+        <mat-error *ngIf="this.fullNameFormControl.hasError('pattern')"> Invalid format </mat-error>
+        <mat-error *ngIf="this.fullNameFormControl.hasError('required')"> Wajib diisi </mat-error>
+    </mat-form-field>
+    <br />
+    <br />
+
+    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="true" style="width: inherit">
+        <mat-label>Tanggal Lahir</mat-label>
+        <input matInput type="date" [(ngModel)]="this.dob" [formControl]="this.dobFormControl" />
+        <button mat-icon-button *ngIf="this.dob" matSuffix mat-icon-button aria-label="Clear" (click)="this.dob = ''">
+            <mat-icon>close</mat-icon>
+        </button>
+        <mat-error *ngIf="this.dobFormControl.hasError('required')"> Wajib diisi </mat-error>
+    </mat-form-field>
+    <br />
+    <br />
+
+    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="true" style="width: inherit">
+        <mat-label>Nomor Ktp</mat-label>
+        <input matInput type="text" [(ngModel)]="this.ktpId" [formControl]="this.ktpIdFormControl" />
+        <button
+            mat-icon-button
+            *ngIf="this.ktpId"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="this.ktpId = ''"
+        >
+            <mat-icon>close</mat-icon>
+        </button>
+        <mat-error *ngIf="this.ktpIdFormControl.hasError('pattern')"> Invalid format </mat-error>
+        <mat-error *ngIf="this.ktpIdFormControl.hasError('required') && !this.bpjsId.trim()">
+            Wajib isi salah satu
+        </mat-error>
+    </mat-form-field>
+    <br />
+    <br />
+
+    <mat-form-field appearance="outline" floatLabel="always" hideRequiredMarker="true" style="width: inherit">
+        <mat-label>Nomor Bpjs</mat-label>
+        <input matInput type="text" [(ngModel)]="this.bpjsId" [formControl]="this.bpjsIdFormControl" />
+        <button
+            mat-icon-button
+            *ngIf="this.bpjsId"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="this.bpjsId = ''"
+        >
+            <mat-icon>close</mat-icon>
+        </button>
+        <mat-error *ngIf="this.bpjsIdFormControl.hasError('pattern')"> Invalid format </mat-error>
+        <mat-error *ngIf="this.bpjsIdFormControl.hasError('required') && !this.ktpId.trim()">
+            Wajib isi salah satu
+        </mat-error>
+    </mat-form-field>
+    <br />
+    <br />
+    <button
+        type="button"
+        (click)="this.setFormWithExistingData()"
+        class="medium-button primary-button"
+        style="margin: 10px; border: 0px"
+    >
+        Reset
+    </button>
+    <button
+        type="submit"
+        class="medium-button accent-button"
+        style="margin: 10px; border: 0px"
+        [disabled]="!this.canSubmitForm()"
+    >
+        Submit
+    </button>
+</form>

@@ -1,0 +1,30 @@
+<br />
+<app-face-recognition
+    #faceRecognition
+    style="width: 63vw; display: flex; align-items: center; justify-content: center"
+></app-face-recognition>
+<br />
+<div class="progress-bar-background">
+    <div class="progress-bar-filled" [style.width.%]="this.faceRecognitionAnalysisProgressPercentage">&nbsp;</div>
+</div>
+<br />
+<mat-form-field appearance="fill">
+    <mat-label>Akurasi</mat-label>
+    <mat-select [(value)]="this.selectedNumberOfPictureTaken">
+        <mat-option *ngFor="let item of this.accuracyOptions" [value]="item.numberOfPictureTaken">
+            {{ item.name }}
+        </mat-option>
+    </mat-select> </mat-form-field
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button
+    mat-raised-button
+    class="accent-button"
+    [disabled]="this.hasStartedFaceAnalysis"
+    (click)="this.startFaceAnalysis()"
+>
+    Mulai
+</button>
+
+<br />
+
+<button mat-raised-button class="warn-button" (click)="this.navigateToUserSearchPage()">Lewati</button>

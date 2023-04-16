@@ -1,0 +1,51 @@
+<mat-card style="width: 68vw; padding-left: 3vw">
+    <mat-card-content>
+        <mat-grid-list cols="2" rowHeight="7vh" class="profile-align-text-left">
+            <mat-grid-tile>Nama Lengkap</mat-grid-tile>
+            <mat-grid-tile>&nbsp; : {{ this.userProfile?.fullName }}</mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="2" rowHeight="7vh" class="profile-align-text-left">
+            <mat-grid-tile>Tanggal Lahir</mat-grid-tile>
+            <mat-grid-tile>&nbsp; : {{ this.userProfile?.dobInString }}</mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="2" rowHeight="7vh" class="profile-align-text-left">
+            <mat-grid-tile>Nomor KTP</mat-grid-tile>
+            <mat-grid-tile>&nbsp; : {{ this.userProfile?.ktpId }}</mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="2" rowHeight="7vh" class="profile-align-text-left">
+            <mat-grid-tile>Nomor BPJS</mat-grid-tile>
+            <mat-grid-tile>&nbsp; : {{ this.userProfile?.bpjsId }}</mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="2" rowHeight="7vh" class="profile-align-text-left">
+            <mat-grid-tile>Tanggal Registrasi</mat-grid-tile>
+            <mat-grid-tile>&nbsp; : {{ this.userProfile?.createdDateInString }}</mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="2" rowHeight="7vh" class="profile-align-text-left">
+            <mat-grid-tile>Tanggal Modifikasi Terakhir</mat-grid-tile>
+            <mat-grid-tile>&nbsp; : {{ this.userProfile?.lastModifiedDateInString }}</mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="2" rowHeight="7vh" class="profile-align-text-left">
+            <mat-grid-tile>Data Wajah</mat-grid-tile>
+            <mat-grid-tile>
+                &nbsp; : {{ this.userProfile?.hasRecognitionData ? 'Tersedia' : 'Tidak tersedia' }}
+            </mat-grid-tile>
+        </mat-grid-list>
+    </mat-card-content>
+</mat-card>
+<br />
+<br />
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile>
+        <button mat-raised-button (click)="editUserProfile()" class="medium-button primary-button">
+            Ubah Data Pasien
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="updateUserFaceModel()" class="medium-button accent-button">
+            {{ this.userProfile?.hasRecognitionData ? 'Ubah Data Wajah' : 'Tambah Data Wajah' }}
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button (click)="deleteUser()" class="medium-button warn-button">Hapus</button>
+    </mat-grid-tile>
+</mat-grid-list>

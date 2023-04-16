@@ -1,0 +1,20 @@
+<div class="home" (click)="this.navigateToNextPage()">
+    <div class="header"></div>
+    <div class="main-container">
+        <h1>Welcome</h1>
+        <br />
+        <h3>
+            Storage Usage:
+            <b>
+                {{ this.storageUsedInBytes / this.storageAvailableInBytes | number : '1.2-2' }}% ({{
+                    this.storageUsedInBytes | number : '0.0'
+                }}
+                bytes / {{ this.storageAvailableInBytes | number : '0.0' }} bytes)
+            </b>
+        </h3>
+        <br />
+        <br />
+        <h3 class="continue-button">Press to continue</h3>
+    </div>
+    <div class="footer"></div>
+</div>

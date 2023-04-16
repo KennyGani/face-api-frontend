@@ -1,0 +1,48 @@
+@import './../styles.scss';
+
+.full-page-height {
+    height: -webkit-fill-available;
+}
+
+.sidebar .top {
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.sidebar .top img {
+    width: 13vw;
+    cursor: pointer;
+}
+
+.sidebar .middle {
+    position: absolute;
+    width: inherit;
+    top: 34%;
+    text-align: center;
+}
+
+.sidebar .middle button {
+    margin-bottom: 1vh;
+}
+
+.sidebar .bottom {
+    position: absolute;
+    width: inherit;
+    top: 89%;
+    text-align: center;
+}
+
+.content-page {
+    background-image: url(./../assets/home/images/background.svg) !important;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar .drawer {
+    background-color: $primary;
+}

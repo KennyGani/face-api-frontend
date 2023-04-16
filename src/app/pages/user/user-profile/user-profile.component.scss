@@ -1,0 +1,5 @@
+@import './../../../../styles.scss';
+
+.profile-align-text-left::ng-deep .mat-grid-tile-content {
+    justify-content: flex-start;
+}

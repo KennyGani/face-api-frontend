@@ -1,0 +1,14 @@
+<div style="display: flex; height: 89%; align-items: center; flex-direction: column">
+    <br />
+    <br />
+    <h2>{{ this.title }}</h2>
+    <br />
+    <div mat-dialog-content>
+        <h5 style="text-align: center">{{ this.message }}</h5>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close cdkFocusInitial class="accent-button medium-button">
+            {{ this.confirmationMessage }}
+        </button>
+    </div>
+</div>
